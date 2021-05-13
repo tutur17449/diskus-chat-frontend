@@ -1,0 +1,17 @@
+@import "/src/assets/styles/config.scss";
+
+#write-message {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding-top: 1rem;
+  input {
+    flex: 9;
+    border-radius: $borderRadius;
+    padding: 5px;
+  }
+  button {
+    flex: 1;
+    border-radius: $borderRadius;
+  }
+}

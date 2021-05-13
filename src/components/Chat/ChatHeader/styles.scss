@@ -1,0 +1,9 @@
+@import "/src/assets/styles/config.scss";
+
+#chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $secondary;
+  flex: 1;
+}

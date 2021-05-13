@@ -1,0 +1,35 @@
+@import "/src/assets/styles/config.scss";
+
+.message {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  align-items: flex-start;
+  div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 0.5rem;
+    h6 {
+      margin: 0 1rem 0 0;
+    }
+    span {
+      font-size: 0.8rem;
+      font-style: italic;
+    }
+  }
+  p {
+    background-color: $main;
+    color: $light;
+    border-radius: $borderRadius;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+.message.me {
+  align-items: flex-end;
+  p {
+    background-color: $chatMe;
+    color: #000;
+  }
+}
