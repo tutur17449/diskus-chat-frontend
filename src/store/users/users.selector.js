@@ -2,6 +2,10 @@ export const getUsers = (state) => {
   return state.users.usersList;
 };
 
+export const getUserscount = (state) => {
+  return state.users.usersList.length;
+};
+
 export const getInit = (state) => {
   return state.users.isInit;
 };

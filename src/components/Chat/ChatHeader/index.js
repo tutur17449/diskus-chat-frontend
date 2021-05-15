@@ -8,7 +8,7 @@ const ChatHeader = () => {
   return (
     <div id="chat-header">
       {!currentConversation ? (
-        <h3>No user select</h3>
+        <h3>Any active conversation</h3>
       ) : (
         <h3>Your conversation with : {currentConversation.username}</h3>
       )}

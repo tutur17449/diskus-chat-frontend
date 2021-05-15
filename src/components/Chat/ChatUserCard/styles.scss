@@ -12,6 +12,10 @@
     cursor: pointer;
     background-color: $main;
     color: $light;
+    .badge {
+      background-color: $light;
+      color: $main;
+    }
   }
   .badge {
     background-color: $main;

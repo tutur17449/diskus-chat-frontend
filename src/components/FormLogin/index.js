@@ -7,7 +7,6 @@ import validateFields from "./formLogin.validator";
 import { useHistory } from "react-router";
 import FormInput from "../FormInput";
 import socket from "../../lib/socket";
-import Logo from "../../assets/images/logo-dark.png";
 import "./styles.scss";
 
 const FormLogin = () => {
@@ -63,12 +62,6 @@ const FormLogin = () => {
 
   return (
     <>
-      <div className="d-flex flex-column align-items-center pb-4 mb-4">
-        <img src={Logo} className="logo" alt="Diskus logo" />
-        <h1 className="text-center">Welcome to Diskus</h1>
-      </div>
-      <h2>Please login</h2>
-      <hr />
       {globalError && (
         <Alert
           color="danger"

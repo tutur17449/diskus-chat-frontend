@@ -16,7 +16,6 @@ const ChatNav = () => {
   const currentConversation = useSelector(getCurrentConversation);
   const notifications = useSelector(getNotifications);
 
-  console.log(notifications, currentConversation);
   const users = useSelector(getUsers);
   const { user } = useAuth();
 
