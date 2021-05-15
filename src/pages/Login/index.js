@@ -4,7 +4,11 @@ import FormLogin from "../../components/FormLogin";
 import withNoAuth from "../../hoc/withNoAuth";
 import Logo from "../../assets/images/logo-dark.png";
 import { useEffect } from "react";
-import { fetchInitialUsers, SET_NEW_USER } from "../../store/users/users.slice";
+import {
+  fetchInitialUsers,
+  REMOVE_USER,
+  SET_NEW_USER,
+} from "../../store/users/users.slice";
 import { getUserscount } from "../../store/users/users.selector";
 import socket from "../../lib/socket";
 
@@ -19,8 +23,13 @@ const Login = () => {
       dispatch(SET_NEW_USER(user));
     });
 
+    socket.on("userLogout", (user) => {
+      dispatch(REMOVE_USER(user));
+    });
+
     return () => {
       socket.off("userOnline");
+      socket.off("userLogout");
     };
   }, []);
 
