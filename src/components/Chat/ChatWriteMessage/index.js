@@ -16,14 +16,16 @@ const ChatWriteMessage = () => {
     setMessage(value);
   };
 
-  const onSendMessage = () => {
-    socket.emit("sendMessage", {
-      sender: user.socketId,
-      receiver: currentConversation.socketId,
-      content: message,
-      date: new Date(),
-    });
-    setMessage("");
+  const onSendMessage = (e) => {
+    if (e.type === "click" || (e.type === "keypress" && e.key === "Enter")) {
+      socket.emit("sendMessage", {
+        sender: user.socketId,
+        receiver: currentConversation.socketId,
+        content: message,
+        date: new Date(),
+      });
+      setMessage("");
+    }
   };
 
   return (
@@ -32,6 +34,7 @@ const ChatWriteMessage = () => {
         placeholder="Your message ..."
         value={message}
         onChange={onChange}
+        onKeyPress={onSendMessage}
       />
       <Button color="primary" onClick={onSendMessage}>
         Send

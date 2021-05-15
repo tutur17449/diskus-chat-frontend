@@ -8,8 +8,11 @@ import { useHistory } from "react-router";
 import FormInput from "../FormInput";
 import socket from "../../lib/socket";
 import "./styles.scss";
+import { useDispatch } from "react-redux";
+import { SET_NEW_USER } from "../../store/users/users.slice";
 
 const FormLogin = () => {
+  const dispatch = useDispatch();
   const { setUser } = useAuth();
   const history = useHistory();
   const [globalError, setGlobalError] = useState(null);
@@ -45,6 +48,7 @@ const FormLogin = () => {
   useEffect(() => {
     socket.on("userOnline", (user) => {
       if (user.username === formData.pseudo) {
+        dispatch(SET_NEW_USER(user));
         setUser(user);
         history.push("/");
       }

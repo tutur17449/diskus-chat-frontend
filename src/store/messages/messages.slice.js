@@ -17,7 +17,9 @@ const messagesSlice = createSlice({
       state.currentConversation = payload;
     },
     REMOVE_CURRENT_CONVERSATION: (state, { payload }) => {
-      if (state.currentConversation?.socketId === payload) {
+      if (payload && state.currentConversation?.socketId === payload) {
+        state.currentConversation = null;
+      } else {
         state.currentConversation = null;
       }
     },

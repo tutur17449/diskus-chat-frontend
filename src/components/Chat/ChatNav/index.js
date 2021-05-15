@@ -5,7 +5,10 @@ import {
   getCurrentConversation,
   getNotifications,
 } from "../../../store/messages/messages.selector";
-import { SET_CURRENT_CONVERSATION } from "../../../store/messages/messages.slice";
+import {
+  REMOVE_CURRENT_CONVERSATION,
+  SET_CURRENT_CONVERSATION,
+} from "../../../store/messages/messages.slice";
 import { getUsers } from "../../../store/users/users.selector";
 import ChatUserCard from "../ChatUserCard";
 import "./styles.scss";
@@ -21,6 +24,10 @@ const ChatNav = () => {
 
   const setCurrentConversation = (user) => {
     dispatch(SET_CURRENT_CONVERSATION(user));
+  };
+
+  const resetCurrentConversation = () => {
+    dispatch(REMOVE_CURRENT_CONVERSATION());
   };
 
   return (
@@ -42,6 +49,7 @@ const ChatNav = () => {
               me={i.username === user.username}
               currentConversation={currentConversation}
               onClick={setCurrentConversation}
+              resetCurrentConversation={resetCurrentConversation}
               notifications={notifications[i.socketId]}
             />
           ))

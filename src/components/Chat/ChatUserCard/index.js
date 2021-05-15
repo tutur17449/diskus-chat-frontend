@@ -7,11 +7,12 @@ const ChatUserCard = ({
   onClick,
   currentConversation,
   notifications,
+  resetCurrentConversation,
 }) => {
   if (me) {
     return (
       <>
-        <div className="user-card">
+        <div className="user-card" onClick={resetCurrentConversation}>
           <span>{data.username} (me)</span>
         </div>
         <hr />
